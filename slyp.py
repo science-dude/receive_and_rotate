@@ -54,9 +54,7 @@ class Slyp:
             rotation.add(word)
         else:
             # If rotation doesn't exist create a set of words
-            specific_length_word_rotation_map[word] = set(
-                [word]
-            )
+            specific_length_word_rotation_map[word] = set([word])
 
     def get_rotations(self) -> List[Set[str]]:
         """
@@ -70,9 +68,9 @@ class Slyp:
 
     def is_word_valid(self, word: str) -> bool:
         """Validates strings against the word criteria"""
-        if any([len(word) < 1, not word.isalpha()]):
-            return False
-        return True
+        if len(word) > 0 and word.isalpha():
+            return True
+        return False
 
     def check_if_was_evaluated_before(self, word: str) -> bool:
         """Checks if a string was received by this instance of the class"""
